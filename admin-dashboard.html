@@ -28,14 +28,13 @@
 
 <section class="dashboard-hero">
   <h1>Admin Panel</h1>
-  <p>Manage students, teachers and parent accounts</p>
+  <p>Manage school system</p>
 </section>
 
 <section class="dashboard-section">
 
   <!-- SUMMARY -->
   <div class="dashboard-grid">
-
     <div class="dashboard-card">
       <h3>Total Students</h3>
       <p id="studentCount">0</p>
@@ -50,7 +49,6 @@
       <h3>Total Parents</h3>
       <p id="parentCount">0</p>
     </div>
-
   </div>
 
   <!-- ADD TEACHER -->
@@ -58,6 +56,7 @@
     <h2>Add Teacher</h2>
 
     <input type="text" id="teacherName" placeholder="Teacher Full Name">
+    <input type="email" id="teacherEmail" placeholder="Teacher Email">
 
     <button onclick="addTeacher()">Add Teacher</button>
 
@@ -70,7 +69,7 @@
 
     <input type="text" id="studentName" placeholder="Student Full Name">
     <input type="text" id="studentId" placeholder="Student ID">
-    
+
     <select id="studentClass">
       <option value="">Select Class</option>
       <option>Primary 1</option>
@@ -88,7 +87,7 @@
     <h2>Create Parent Account</h2>
 
     <input type="text" id="parentName" placeholder="Parent Full Name">
-    <input type="email" id="parentEmail" placeholder="Email">
+    <input type="email" id="parentEmail" placeholder="Parent Email">
     <input type="text" id="parentPhone" placeholder="Phone Number">
     <input type="text" id="parentStudentId" placeholder="Linked Student ID">
 
@@ -97,10 +96,10 @@
     <ul id="parentList"></ul>
   </div>
 
-  <!-- AI ANALYSIS -->
+  <!-- AI -->
   <div class="ai-report">
-    <h2>School Performance Analysis</h2>
-    <p id="aiText">Click button to analyze school performance.</p>
+    <h2>School Analysis</h2>
+    <p id="aiText">Click to analyze school growth.</p>
     <button onclick="runAI()">Run AI Analysis</button>
   </div>
 
@@ -116,33 +115,37 @@ function toggleMenu(){
   document.getElementById("navMenu").classList.toggle("active");
 }
 
-/* STORAGE ARRAYS */
+/* DATA STORAGE */
 let teachers = [];
 let students = [];
 let parents = [];
 
 /* ADD TEACHER */
 function addTeacher(){
-  let name = document.getElementById("teacherName").value;
 
-  if(!name){
-    alert("Enter teacher name");
+  let name = document.getElementById("teacherName").value;
+  let email = document.getElementById("teacherEmail").value;
+
+  if(!name || !email){
+    alert("Enter name and email");
     return;
   }
 
-  teachers.push(name);
+  teachers.push({name, email});
 
   let li = document.createElement("li");
-  li.innerText = name;
+  li.innerText = name + " (" + email + ")";
   document.getElementById("teacherList").appendChild(li);
 
   document.getElementById("teacherName").value = "";
+  document.getElementById("teacherEmail").value = "";
 
   document.getElementById("teacherCount").innerText = teachers.length;
 }
 
 /* ADD STUDENT */
 function addStudent(){
+
   let name = document.getElementById("studentName").value;
   let id = document.getElementById("studentId").value;
   let cls = document.getElementById("studentClass").value;
@@ -166,6 +169,7 @@ function addStudent(){
 
 /* ADD PARENT */
 function addParent(){
+
   let name = document.getElementById("parentName").value;
   let studentId = document.getElementById("parentStudentId").value;
 
@@ -194,11 +198,11 @@ function runAI(){
   let message = "";
 
   if(totalStudents === 0){
-    message = "No student data available yet.";
+    message = "No student data yet.";
   } else if(totalStudents < 5){
-    message = "Small number of students. System just starting.";
+    message = "School is still small. Growing phase.";
   } else {
-    message = "School is growing well. Continue monitoring performance.";
+    message = "School is growing well. Good progress.";
   }
 
   document.getElementById("aiText").innerText = message;
