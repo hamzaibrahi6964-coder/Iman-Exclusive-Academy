@@ -886,3 +886,34 @@ th, td{
   padding:20px;
   border-radius:15px;
 }
+
+/* TEACHER DASHBOARD */
+.result-box input{
+  width:100%;
+  padding:12px;
+  margin-bottom:10px;
+  border:1px solid #ddd;
+  border-radius:10px;
+}
+
+table input{
+  width:100%;
+  padding:8px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  text-align:center;
+}
+
+.result-box button{
+  margin-top:10px;
+  background:#facc15;
+  border:none;
+  padding:12px;
+  border-radius:25px;
+  cursor:pointer;
+  font-weight:700;
+}
+
+.ai-report{
+  margin-top:20px;
+}
