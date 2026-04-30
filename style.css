@@ -917,3 +917,22 @@ table input{
 .ai-report{
   margin-top:20px;
 }
+
+select{
+  width:100%;
+  padding:12px;
+  margin-bottom:10px;
+  border-radius:10px;
+  border:1px solid #ddd;
+}
+
+.result-box input{
+  width:100%;
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+
+table input{
+  text-align:center;
+}
