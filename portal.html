@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portal | Iman Exclusive Academy</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<header class="navbar">
+  <a href="index.html" class="brand">
+    <img src="iman logo.jpg" alt="Iman Exclusive Academy Logo">
+    <div>
+      <h3>Iman Exclusive Academy</h3>
+      <span>School Portal</span>
+    </div>
+  </a>
+
+  <nav id="navMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="admission.html">Admission</a>
+    <a href="portal.html" class="active portal-link">Portal</a>
+  </nav>
+
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+</header>
+
+<section class="page-hero">
+  <div class="small-overlay">
+    <h1>School Portal</h1>
+    <p>Secure access for parents, teachers and administrators.</p>
+  </div>
+</section>
+
+<section class="portal-section">
+  <div class="section-title">
+    <span class="section-label">Portal Access</span>
+    <h2>Select Your Dashboard</h2>
+  </div>
+
+  <div class="portal-grid">
+    <div class="portal-card">
+      <div class="portal-icon">👨‍👩‍👧</div>
+      <h3>Parent Portal</h3>
+      <p>View your child’s results, school fees, activities and AI learning summary.</p>
+      <button onclick="openLogin('parent')">Parent Login</button>
+    </div>
+
+    <div class="portal-card">
+      <div class="portal-icon">👨‍🏫</div>
+      <h3>Teacher Portal</h3>
+      <p>Upload student scores and use AI support to analyze academic performance.</p>
+      <button onclick="openLogin('teacher')">Teacher Login</button>
+    </div>
+
+    <div class="portal-card">
+      <div class="portal-icon">🧑‍💼</div>
+      <h3>Admin Portal</h3>
+      <p>Manage students, teachers, parent accounts, results and school records.</p>
+      <button onclick="openLogin('admin')">Admin Login</button>
+    </div>
+  </div>
+</section>
+
+<div class="login-modal" id="loginModal">
+  <div class="login-box">
+    <button class="close-btn" onclick="closeLogin()">×</button>
+
+    <h2 id="loginTitle">Login</h2>
+    <p id="loginNote">Enter your login details to continue.</p>
+
+    <form id="loginForm">
+      <input type="text" id="loginId" placeholder="Email or ID" required>
+      <input type="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <h3>Iman Exclusive Academy</h3>
+      <p>Learn, Live, Achieve</p>
+      <p>Kaduna, Nigeria</p>
+    </div>
+
+    <div>
+      <h4>Quick Links</h4>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="admission.html">Admission</a>
+    </div>
+
+    <div>
+      <h4>Contact</h4>
+      <p>0803 448 5523</p>
+      <p>info@imanexclusiveacademy.com</p>
+    </div>
+
+    <div>
+      <h4>Follow Us</h4>
+      <div class="socials">
+        <span>◎</span>
+        <span>f</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Iman Exclusive Academy. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script>
+let currentRole = "";
+
+function toggleMenu(){
+  document.getElementById("navMenu").classList.toggle("active");
+}
+
+function openLogin(role){
+  currentRole = role;
+
+  const modal = document.getElementById("loginModal");
+  const title = document.getElementById("loginTitle");
+  const note = document.getElementById("loginNote");
+  const loginId = document.getElementById("loginId");
+
+  modal.style.display = "flex";
+
+  if(role === "parent"){
+    title.innerText = "Parent Login";
+    note.innerText = "Parents login with Student ID and password. Parent accounts are created by admin only.";
+    loginId.placeholder = "Student ID";
+  }
+
+  if(role === "teacher"){
+    title.innerText = "Teacher Login";
+    note.innerText = "Teachers login with approved teacher account.";
+    loginId.placeholder = "Teacher Email or ID";
+  }
+
+  if(role === "admin"){
+    title.innerText = "Admin Login";
+    note.innerText = "Admins login with authorized admin account.";
+    loginId.placeholder = "Admin Email or ID";
+  }
+}
+
+function closeLogin(){
+  document.getElementById("loginModal").style.display = "none";
+}
+
+document.getElementById("loginForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  if(currentRole === "parent"){
+    window.location.href = "parent-dashboard.html";
+  }
+
+  if(currentRole === "teacher"){
+    window.location.href = "teacher-dashboard.html";
+  }
+
+  if(currentRole === "admin"){
+    window.location.href = "admin-dashboard.html";
+  }
+});
+</script>
+
+</body>
+</html>
