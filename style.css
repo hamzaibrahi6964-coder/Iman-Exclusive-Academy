@@ -948,3 +948,18 @@ li{
   margin-top:5px;
   border-radius:8px;
 }
+
+/* ADMIN LIST STYLE */
+ul{
+  list-style:none;
+  margin-top:10px;
+}
+
+li{
+  background:#f5f7fb;
+  padding:10px;
+  margin-top:6px;
+  border-radius:10px;
+  border-left:4px solid #facc15;
+  font-size:14px;
+}
