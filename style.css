@@ -550,3 +550,124 @@ nav a.active{
   font-size:18px;
   color:#e2e8f0;
 }
+
+/* ADMISSION PAGE */
+.admission-intro{
+  padding:85px 6% 35px;
+  background:white;
+  text-align:center;
+}
+
+.admission-intro h2{
+  font-size:38px;
+  color:#08233f;
+  margin-bottom:15px;
+}
+
+.admission-intro p{
+  max-width:760px;
+  margin:auto;
+  color:#475569;
+  line-height:1.8;
+  font-size:17px;
+}
+
+.admission-levels{
+  padding:45px 6% 85px;
+  background:white;
+}
+
+.admission-form-section{
+  padding:90px 6%;
+  background:#f6f8fc;
+}
+
+.form-wrapper{
+  display:grid;
+  grid-template-columns:.9fr 1.1fr;
+  gap:45px;
+  align-items:start;
+  max-width:1100px;
+  margin:auto;
+}
+
+.form-info{
+  background:#08233f;
+  color:white;
+  padding:35px;
+  border-radius:24px;
+  box-shadow:0 18px 40px rgba(0,0,0,.12);
+}
+
+.form-info h2{
+  font-size:34px;
+  margin:15px 0;
+}
+
+.form-info p{
+  color:#dbeafe;
+  line-height:1.8;
+}
+
+.contact-mini{
+  margin-top:25px;
+  background:rgba(255,255,255,.1);
+  padding:18px;
+  border-radius:18px;
+}
+
+.contact-mini p{
+  margin:10px 0;
+}
+
+.admission-form{
+  background:white;
+  padding:35px;
+  border-radius:24px;
+  box-shadow:0 18px 40px rgba(0,0,0,.1);
+  display:grid;
+  gap:15px;
+}
+
+.admission-form input,
+.admission-form select,
+.admission-form textarea{
+  width:100%;
+  padding:15px;
+  border:1px solid #d1d5db;
+  border-radius:14px;
+  font-size:15px;
+  outline:none;
+}
+
+.admission-form textarea{
+  min-height:130px;
+  resize:none;
+}
+
+.admission-form input:focus,
+.admission-form select:focus,
+.admission-form textarea:focus{
+  border-color:#facc15;
+}
+
+.admission-form button{
+  background:#facc15;
+  color:#08233f;
+  border:none;
+  padding:15px;
+  border-radius:30px;
+  font-size:16px;
+  font-weight:900;
+  cursor:pointer;
+}
+
+@media(max-width:900px){
+  .form-wrapper{
+    grid-template-columns:1fr;
+  }
+
+  .admission-intro h2{
+    font-size:30px;
+  }
+}
