@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Iman Exclusive Academy</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<header class="navbar">
+  <a href="index.html" class="brand">
+    <img src="iman logo.jpg" alt="Iman Exclusive Academy Logo">
+    <div>
+      <h3>Iman Exclusive Academy</h3>
+      <span>Learn, Live, Achieve</span>
+    </div>
+  </a>
+
+  <nav id="navMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="academics.html">Academics</a>
+    <a href="admission.html">Admission</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html" class="active">Contact</a>
+    <a href="portal.html" class="portal-link">Portal</a>
+  </nav>
+
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+</header>
+
+<section class="page-hero">
+  <div class="small-overlay">
+    <h1>Contact Us</h1>
+    <p>We are ready to answer your questions and guide you.</p>
+  </div>
+</section>
+
+<section class="contact-section">
+  <div class="contact-wrapper">
+
+    <div class="contact-info">
+      <span class="section-label">Get in Touch</span>
+      <h2>Contact Iman Exclusive Academy</h2>
+      <p>
+        Reach out to us for admission enquiries, school information,
+        portal support or general assistance.
+      </p>
+
+      <div class="contact-card">📞 0803 448 5523</div>
+      <div class="contact-card">📧 info@imanexclusiveacademy.com</div>
+      <div class="contact-card">📍 Kaduna, Nigeria</div>
+    </div>
+
+    <form class="contact-form">
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <input type="tel" placeholder="Phone Number" required>
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Need Admission Assistance?</h2>
+  <p>Call the school directly and our team will guide you.</p>
+  <a href="tel:08034485523" class="btn">Call Now</a>
+</section>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <h3>Iman Exclusive Academy</h3>
+      <p>Learn, Live, Achieve</p>
+      <p>Kaduna, Nigeria</p>
+    </div>
+
+    <div>
+      <h4>Quick Links</h4>
+      <a href="about.html">About</a>
+      <a href="academics.html">Academics</a>
+      <a href="admission.html">Admission</a>
+      <a href="portal.html">Portal</a>
+    </div>
+
+    <div>
+      <h4>Contact</h4>
+      <p>0803 448 5523</p>
+      <p>info@imanexclusiveacademy.com</p>
+    </div>
+
+    <div>
+      <h4>Follow Us</h4>
+      <div class="socials">
+        <span>◎</span>
+        <span>f</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Iman Exclusive Academy. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById("navMenu").classList.toggle("active");
+}
+
+document.querySelector(".contact-form").addEventListener("submit", function(e){
+  e.preventDefault();
+  alert("Message sent successfully. We will contact you soon.");
+  this.reset();
+});
+</script>
+
+</body>
+</html>
