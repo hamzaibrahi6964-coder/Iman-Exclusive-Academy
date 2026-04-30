@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+  <a href="index.html" class="brand">
+    <img src="iman logo.jpg">
+    <div>
+      <h3>Iman Exclusive Academy</h3>
+      <span>Teacher Dashboard</span>
+    </div>
+  </a>
+
+  <nav id="navMenu">
+    <a href="portal.html">Portal</a>
+    <a href="index.html" class="portal-link">Logout</a>
+  </nav>
+
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+</header>
+
+<section class="dashboard-hero">
+  <h1>Welcome, Teacher</h1>
+  <p>Enter student scores and analyze performance</p>
+</section>
+
+<section class="dashboard-section">
+
+  <!-- INPUT FORM -->
+  <div class="result-box">
+    <h2>Enter Student Scores</h2>
+
+    <input type="text" id="studentName" placeholder="Student Name">
+
+    <table>
+      <tr>
+        <th>Subject</th>
+        <th>CA</th>
+        <th>Exam</th>
+      </tr>
+
+      <tr>
+        <td>Mathematics</td>
+        <td><input type="number" class="ca"></td>
+        <td><input type="number" class="exam"></td>
+      </tr>
+
+      <tr>
+        <td>English</td>
+        <td><input type="number" class="ca"></td>
+        <td><input type="number" class="exam"></td>
+      </tr>
+
+      <tr>
+        <td>Science</td>
+        <td><input type="number" class="ca"></td>
+        <td><input type="number" class="exam"></td>
+      </tr>
+
+      <tr>
+        <td>Social Studies</td>
+        <td><input type="number" class="ca"></td>
+        <td><input type="number" class="exam"></td>
+      </tr>
+    </table>
+
+    <button onclick="analyzeResult()">Analyze Result</button>
+  </div>
+
+  <!-- AI RESULT -->
+  <div class="ai-report" id="aiBox" style="display:none;">
+    <h2>AI Analysis</h2>
+    <p id="aiSummary"></p>
+    <div id="aiTips"></div>
+  </div>
+
+</section>
+
+<footer class="footer">
+  <p>© 2026 Iman Exclusive Academy</p>
+</footer>
+
+<script>
+
+function toggleMenu(){
+  document.getElementById("navMenu").classList.toggle("active");
+}
+
+function analyzeResult(){
+
+  let rows = document.querySelectorAll("table tr");
+  let total = 0;
+  let count = 0;
+
+  let weak = [];
+  let strong = [];
+
+  rows.forEach((row, index) => {
+
+    if(index === 0) return;
+
+    let subject = row.children[0].innerText;
+    let ca = parseInt(row.querySelector(".ca").value) || 0;
+    let exam = parseInt(row.querySelector(".exam").value) || 0;
+
+    let score = ca + exam;
+
+    total += score;
+    count++;
+
+    if(score < 50){
+      weak.push(subject);
+    }else{
+      strong.push(subject);
+    }
+
+  });
+
+  let avg = total / count;
+
+  let summary = "";
+
+  if(avg >= 70){
+    summary = "Excellent performance.";
+  }else if(avg >= 50){
+    summary = "Average performance. Needs improvement.";
+  }else{
+    summary = "Poor performance. Immediate attention required.";
+  }
+
+  document.getElementById("aiSummary").innerText =
+    summary + " Average Score: " + avg.toFixed(1) + "%";
+
+  let tips = "";
+
+  if(weak.length > 0){
+    tips += "<p>⚠ Weak Subjects: " + weak.join(", ") + "</p>";
+  }
+
+  if(strong.length > 0){
+    tips += "<p>✔ Strong Subjects: " + strong.join(", ") + "</p>";
+  }
+
+  tips += "<p>✔ Encourage revision and practice.</p>";
+
+  document.getElementById("aiTips").innerHTML = tips;
+
+  document.getElementById("aiBox").style.display = "block";
+
+}
+
+</script>
+
+</body>
+</html>
