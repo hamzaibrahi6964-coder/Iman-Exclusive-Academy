@@ -526,3 +526,27 @@ nav a.active{
     height:47px;
   }
 }
+
+/* ABOUT PAGE HERO FIX */
+.page-hero{
+  min-height:40vh;
+  background:
+    linear-gradient(rgba(8,35,63,.85), rgba(8,35,63,.85)),
+    url("iman background.jpg") center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:white;
+  padding:40px 6%;
+}
+
+.small-overlay h1{
+  font-size:42px;
+  margin-bottom:10px;
+}
+
+.small-overlay p{
+  font-size:18px;
+  color:#e2e8f0;
+}
