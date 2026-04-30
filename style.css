@@ -671,3 +671,143 @@ nav a.active{
     font-size:30px;
   }
 }
+
+/* PORTAL PAGE */
+.portal-section{
+  padding:90px 6%;
+  background:#f6f8fc;
+}
+
+.portal-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+  max-width:1150px;
+  margin:35px auto 0;
+}
+
+.portal-card{
+  background:white;
+  padding:32px;
+  border-radius:24px;
+  box-shadow:0 18px 40px rgba(0,0,0,.08);
+  border-top:5px solid #facc15;
+  text-align:center;
+}
+
+.portal-icon{
+  width:70px;
+  height:70px;
+  margin:0 auto 18px;
+  background:#fff7d6;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:30px;
+}
+
+.portal-card h3{
+  color:#08233f;
+  font-size:23px;
+  margin-bottom:12px;
+}
+
+.portal-card p{
+  color:#64748b;
+  line-height:1.75;
+  margin-bottom:22px;
+}
+
+.portal-card button{
+  background:#08233f;
+  color:white;
+  border:none;
+  padding:13px 22px;
+  border-radius:30px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.portal-card button:hover{
+  background:#0f3a63;
+}
+
+/* LOGIN MODAL */
+.login-modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:3000;
+}
+
+.login-box{
+  width:100%;
+  max-width:430px;
+  background:white;
+  padding:35px;
+  border-radius:24px;
+  position:relative;
+  box-shadow:0 25px 70px rgba(0,0,0,.25);
+}
+
+.close-btn{
+  position:absolute;
+  top:14px;
+  right:18px;
+  border:none;
+  background:none;
+  font-size:28px;
+  cursor:pointer;
+  color:#08233f;
+}
+
+.login-box h2{
+  color:#08233f;
+  font-size:30px;
+  margin-bottom:8px;
+}
+
+.login-box p{
+  color:#64748b;
+  line-height:1.7;
+  margin-bottom:20px;
+}
+
+.login-box form{
+  display:grid;
+  gap:14px;
+}
+
+.login-box input{
+  width:100%;
+  padding:15px;
+  border:1px solid #d1d5db;
+  border-radius:14px;
+  outline:none;
+  font-size:15px;
+}
+
+.login-box input:focus{
+  border-color:#facc15;
+}
+
+.login-box button[type="submit"]{
+  background:#facc15;
+  color:#08233f;
+  border:none;
+  padding:15px;
+  border-radius:30px;
+  font-weight:900;
+  cursor:pointer;
+}
+
+@media(max-width:900px){
+  .portal-grid{
+    grid-template-columns:1fr;
+  }
+}
