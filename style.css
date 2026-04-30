@@ -963,3 +963,43 @@ li{
   border-left:4px solid #facc15;
   font-size:14px;
 }
+
+/* ADMIN DASHBOARD - SCHOOL ANALYSIS CARD */
+.admin-dashboard .ai-report,
+.ai-report{
+  background: linear-gradient(135deg, #fff7d6, #fde68a);
+  padding: 32px;
+  border-radius: 22px;
+  box-shadow: 0 18px 45px rgba(0,0,0,0.10);
+  border-left: 7px solid #facc15;
+  margin-top: 25px;
+}
+
+.ai-report h2{
+  font-size: 26px;
+  color: #08233f;
+  margin-bottom: 8px;
+  font-weight: 900;
+}
+
+.ai-report p{
+  color: #334155;
+  font-size: 16px;
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+
+.ai-report button{
+  background: #08233f;
+  color: white;
+  border: none;
+  padding: 13px 24px;
+  border-radius: 30px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 10px 22px rgba(8,35,63,.22);
+}
+
+.ai-report button:hover{
+  background: #0f3a63;
+}
