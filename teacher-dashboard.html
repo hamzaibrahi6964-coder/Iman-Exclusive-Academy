@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Teacher Dashboard</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teacher Dashboard</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -27,58 +27,78 @@
 </header>
 
 <section class="dashboard-hero">
-  <h1>Welcome, Teacher</h1>
-  <p>Enter student scores and analyze performance</p>
+  <h1>Teacher Panel</h1>
+  <p>Upload results and analyze student performance</p>
 </section>
 
 <section class="dashboard-section">
 
-  <!-- INPUT FORM -->
   <div class="result-box">
-    <h2>Enter Student Scores</h2>
+    <h2>Upload Student Result</h2>
 
-    <input type="text" id="studentName" placeholder="Student Name">
+    <!-- CLASS -->
+    <select id="classSelect">
+      <option value="">Select Class</option>
+      <option>Primary 1</option>
+      <option>Primary 2</option>
+      <option>Primary 3</option>
+    </select>
 
+    <!-- STUDENT -->
+    <select id="studentSelect">
+      <option value="">Select Student</option>
+      <option>Ahmad Musa</option>
+      <option>Aisha Musa</option>
+    </select>
+
+    <!-- TABLE -->
     <table>
       <tr>
         <th>Subject</th>
         <th>CA</th>
         <th>Exam</th>
+        <th>Total</th>
       </tr>
 
       <tr>
         <td>Mathematics</td>
         <td><input type="number" class="ca"></td>
         <td><input type="number" class="exam"></td>
+        <td class="total">0</td>
       </tr>
 
       <tr>
         <td>English</td>
         <td><input type="number" class="ca"></td>
         <td><input type="number" class="exam"></td>
+        <td class="total">0</td>
       </tr>
 
       <tr>
         <td>Science</td>
         <td><input type="number" class="ca"></td>
         <td><input type="number" class="exam"></td>
+        <td class="total">0</td>
       </tr>
 
       <tr>
         <td>Social Studies</td>
         <td><input type="number" class="ca"></td>
         <td><input type="number" class="exam"></td>
+        <td class="total">0</td>
       </tr>
+
     </table>
 
-    <button onclick="analyzeResult()">Analyze Result</button>
+    <button onclick="calculateTotals()">Calculate</button>
+    <button onclick="saveResult()">Save Result</button>
+    <button onclick="analyzeResult()">AI Analyze</button>
+
   </div>
 
-  <!-- AI RESULT -->
   <div class="ai-report" id="aiBox" style="display:none;">
     <h2>AI Analysis</h2>
     <p id="aiSummary"></p>
-    <div id="aiTips"></div>
   </div>
 
 </section>
@@ -93,64 +113,63 @@ function toggleMenu(){
   document.getElementById("navMenu").classList.toggle("active");
 }
 
-function analyzeResult(){
-
+/* CALCULATE TOTALS */
+function calculateTotals(){
   let rows = document.querySelectorAll("table tr");
-  let total = 0;
-  let count = 0;
-
-  let weak = [];
-  let strong = [];
 
   rows.forEach((row, index) => {
-
     if(index === 0) return;
 
-    let subject = row.children[0].innerText;
     let ca = parseInt(row.querySelector(".ca").value) || 0;
     let exam = parseInt(row.querySelector(".exam").value) || 0;
 
-    let score = ca + exam;
+    row.querySelector(".total").innerText = ca + exam;
+  });
+}
 
-    total += score;
+/* SAVE RESULT */
+function saveResult(){
+
+  let student = document.getElementById("studentSelect").value;
+  let cls = document.getElementById("classSelect").value;
+
+  if(!student || !cls){
+    alert("Select class and student first");
+    return;
+  }
+
+  alert("Result saved successfully for " + student);
+
+}
+
+/* AI ANALYSIS */
+function analyzeResult(){
+
+  let totals = document.querySelectorAll(".total");
+
+  let sum = 0;
+  let count = 0;
+
+  totals.forEach(cell => {
+    let val = parseInt(cell.innerText) || 0;
+    sum += val;
     count++;
-
-    if(score < 50){
-      weak.push(subject);
-    }else{
-      strong.push(subject);
-    }
-
   });
 
-  let avg = total / count;
+  let avg = sum / count;
 
-  let summary = "";
+  let message = "";
 
   if(avg >= 70){
-    summary = "Excellent performance.";
-  }else if(avg >= 50){
-    summary = "Average performance. Needs improvement.";
-  }else{
-    summary = "Poor performance. Immediate attention required.";
+    message = "Excellent performance";
+  } else if(avg >= 50){
+    message = "Average performance";
+  } else {
+    message = "Needs serious improvement";
   }
 
   document.getElementById("aiSummary").innerText =
-    summary + " Average Score: " + avg.toFixed(1) + "%";
-
-  let tips = "";
-
-  if(weak.length > 0){
-    tips += "<p>⚠ Weak Subjects: " + weak.join(", ") + "</p>";
-  }
-
-  if(strong.length > 0){
-    tips += "<p>✔ Strong Subjects: " + strong.join(", ") + "</p>";
-  }
-
-  tips += "<p>✔ Encourage revision and practice.</p>";
-
-  document.getElementById("aiTips").innerHTML = tips;
+    message + " | Average: " + avg.toFixed(1) + "%";
 
   document.getElementById("aiBox").style.display = "block";
 
