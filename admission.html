@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admission | Iman Exclusive Academy</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<header class="navbar">
+  <a href="index.html" class="brand">
+    <img src="iman logo.jpg" alt="Iman Exclusive Academy Logo">
+    <div>
+      <h3>Iman Exclusive Academy</h3>
+      <span>Learn, Live, Achieve</span>
+    </div>
+  </a>
+
+  <nav id="navMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="admission.html" class="active">Admission</a>
+    <a href="portal.html" class="portal-link">Portal</a>
+  </nav>
+
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+</header>
+
+<section class="page-hero">
+  <div class="small-overlay">
+    <h1>Admission</h1>
+    <p>Start your child’s journey with Iman Exclusive Academy.</p>
+  </div>
+</section>
+
+<section class="admission-intro">
+  <span class="section-label">Admission is Open</span>
+  <h2>Give Your Child a Strong Academic Foundation</h2>
+  <p>
+    We welcome students into Nursery, Primary and Secondary sections.
+    Our admission process is simple, organized and parent-friendly.
+  </p>
+</section>
+
+<section class="admission-levels">
+  <div class="feature-grid">
+    <div class="feature-card">
+      <h3>🧸 Nursery</h3>
+      <p>Early learning with care, creativity and confidence building.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>📘 Primary</h3>
+      <p>Strong foundation in literacy, numeracy, science and discipline.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>🎓 Secondary</h3>
+      <p>Academic excellence, examination preparation and leadership growth.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>🏫 Moral Training</h3>
+      <p>We support students with discipline, respect and good character.</p>
+    </div>
+  </div>
+</section>
+
+<section class="admission-form-section">
+  <div class="form-wrapper">
+    <div class="form-info">
+      <span class="section-label">Enquiry Form</span>
+      <h2>Send Admission Enquiry</h2>
+      <p>
+        Fill this form and the school will contact you. Later, we can connect it
+        to backend so enquiries save automatically.
+      </p>
+
+      <div class="contact-mini">
+        <p>📞 0803 448 5523</p>
+        <p>📧 info@imanexclusiveacademy.com</p>
+        <p>📍 Kaduna, Nigeria</p>
+      </div>
+    </div>
+
+    <form class="admission-form">
+      <input type="text" placeholder="Parent / Guardian Full Name" required>
+      <input type="text" placeholder="Student Full Name" required>
+      <input type="tel" placeholder="Phone Number" required>
+
+      <select required>
+        <option value="">Select Section</option>
+        <option>Nursery</option>
+        <option>Primary</option>
+        <option>Secondary</option>
+      </select>
+
+      <textarea placeholder="Message or enquiry"></textarea>
+
+      <button type="submit">Submit Enquiry</button>
+    </form>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Ready to Join Iman Exclusive Academy?</h2>
+  <p>Contact the school today and begin the admission process.</p>
+  <a href="tel:08034485523" class="btn">Call Now</a>
+</section>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <h3>Iman Exclusive Academy</h3>
+      <p>Learn, Live, Achieve</p>
+      <p>Kaduna, Nigeria</p>
+    </div>
+
+    <div>
+      <h4>Quick Links</h4>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="portal.html">Portal</a>
+    </div>
+
+    <div>
+      <h4>Contact</h4>
+      <p>0803 448 5523</p>
+      <p>info@imanexclusiveacademy.com</p>
+    </div>
+
+    <div>
+      <h4>Follow Us</h4>
+      <div class="socials">
+        <span>◎</span>
+        <span>f</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Iman Exclusive Academy. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById("navMenu").classList.toggle("active");
+}
+
+document.querySelector(".admission-form").addEventListener("submit", function(e){
+  e.preventDefault();
+  alert("Admission enquiry submitted successfully. We will contact you soon.");
+  this.reset();
+});
+</script>
+
+</body>
+</html>
